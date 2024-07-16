@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  weatherApp
+
+  Created by Hakob Ghlijyan on 16.07.2024.
+  
+*/
+
+"Sunny" = "Sunny";
+"Rainy" = "Rainy";
+"Stormy" = "Stormy";
+"Foggy" = "Foggy";
+
+"Sunny" = "Ясно";
+"Rainy" = "Дождь";
+"Stormy" = "Гроза";
+"Foggy" = "Туман";

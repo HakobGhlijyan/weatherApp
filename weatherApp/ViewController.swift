@@ -7,36 +7,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+import UIKit
 
+class WeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var weatherView: UIView!
+    
+    let weatherTypes = [NSLocalizedString("Sunny", comment: ""),
+                        NSLocalizedString("Rainy", comment: ""),
+                        NSLocalizedString("Stormy", comment: ""),
+                        NSLocalizedString("Foggy", comment: "")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
-}
-
-class WeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    var weatherTypes = ["Sunny", "Rainy", "Stormy", "Foggy"]
-    var collectionView: UICollectionView!
-    var currentWeatherView: UIView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setupCollectionView()
-        displayRandomWeather()
-    }
-
-    func setupCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 50, width: self.view.frame.width, height: 100), collectionViewLayout: layout)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        self.view.addSubview(collectionView)
+        
+        // Display random weather on startup
+        displayRandomWeather()
     }
 
     func displayRandomWeather() {
@@ -45,56 +35,70 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     func displayWeather(at index: Int) {
-        // Remove existing weather view
-        currentWeatherView?.removeFromSuperview()
+        // Clear current weather view
+        weatherView.subviews.forEach({ $0.removeFromSuperview() })
         
-        // Add new weather view
-        let weatherView = UIView(frame: self.view.bounds)
-        weatherView.backgroundColor = getWeatherColor(type: weatherTypes[index])
-        self.view.addSubview(weatherView)
-        self.view.sendSubviewToBack(weatherView)
-        currentWeatherView = weatherView
-
-        // Add animation
+        // Create new weather animation
+        let newWeatherView = createWeatherAnimation(type: weatherTypes[index])
+        newWeatherView.frame = weatherView.bounds
+        weatherView.addSubview(newWeatherView)
+        
+        // Add transition animation
         let transition = CATransition()
         transition.type = CATransitionType.fade
         transition.duration = 1.0
         weatherView.layer.add(transition, forKey: kCATransition)
     }
 
-    func getWeatherColor(type: String) -> UIColor {
+    func createWeatherAnimation(type: String) -> UIView {
+        let view = UIView()
         switch type {
         case "Sunny":
-            return UIColor.yellow
+            view.backgroundColor = UIColor.yellow
+            // Add more sun-specific animations here
         case "Rainy":
-            return UIColor.blue
+            view.backgroundColor = UIColor.blue
+            // Add more rain-specific animations here
         case "Stormy":
-            return UIColor.gray
+            view.backgroundColor = UIColor.gray
+            // Add more storm-specific animations here
         case "Foggy":
-            return UIColor.lightGray
+            view.backgroundColor = UIColor.lightGray
+            // Add more fog-specific animations here
         default:
-            return UIColor.white
+            view.backgroundColor = UIColor.white
         }
+        return view
     }
 
     // MARK: - UICollectionViewDelegate & DataSource
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weatherTypes.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .white
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as? WeatherCell {
+            // Configure cell
+            cell.weatherLabel.text = weatherTypes[indexPath.row]
         
-        let label = UILabel(frame: cell.contentView.frame)
-        label.text = weatherTypes[indexPath.row]
-        label.textAlignment = .center
-        cell.contentView.addSubview(label)
-        
-        return cell
+            cell.backgroundColor = .lightGray // Настройте стиль вашей ячейки
+                    
+                    
+            return cell
+        } else {
+            // Handle error case if casting fails
+            return UICollectionViewCell()
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         displayWeather(at: indexPath.row)
+    }
+
+    // MARK: - UICollectionViewDelegateFlowLayout
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 120, height: collectionView.bounds.height)
     }
 }

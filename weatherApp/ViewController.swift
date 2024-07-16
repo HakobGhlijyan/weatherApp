@@ -15,7 +15,7 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var weatherView: UIView!
     
     var weatherTypes: [String] {
-        ["Ясно", "Дождь", "Гроза","Туман"]
+        ["Ясно", "Дождь", "Гроза","Туман"].shuffled()
     }
         
     override func viewDidLoad() {

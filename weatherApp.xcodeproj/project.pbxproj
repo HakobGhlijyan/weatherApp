@@ -14,7 +14,7 @@
 		34BC0DEF2C46BFE700A20BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BC0DEE2C46BFE700A20BE1 /* Assets.xcassets */; };
 		34BC0DF22C46BFE700A20BE1 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 34BC0DF12C46BFE700A20BE1 /* Base */; };
 		34BC0DFA2C46C3DD00A20BE1 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC0DF92C46C3DD00A20BE1 /* WeatherCell.swift */; };
-		34BC0DFD2C46C6C400A20BE1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34BC0DFB2C46C6C400A20BE1 /* Localizable.strings */; };
+		34BC0E3B2C46E0F700A20BE1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34BC0E3A2C46E0F700A20BE1 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,10 @@
 		34BC0DF12C46BFE700A20BE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34BC0DF32C46BFE700A20BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34BC0DF92C46C3DD00A20BE1 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
-		34BC0DFC2C46C6C400A20BE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		34BC0E392C46E0F700A20BE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		34BC0E3C2C46E17400A20BE1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		34BC0E3D2C46E17400A20BE1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		34BC0E3F2C46E61300A20BE1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +66,7 @@
 				34BC0DE52C46BFE700A20BE1 /* AppDelegate.swift */,
 				34BC0DE72C46BFE700A20BE1 /* SceneDelegate.swift */,
 				34BC0DE92C46BFE700A20BE1 /* ViewController.swift */,
-				34BC0DFB2C46C6C400A20BE1 /* Localizable.strings */,
+				34BC0E3A2C46E0F700A20BE1 /* Localizable.strings */,
 				34BC0DEB2C46BFE700A20BE1 /* Main.storyboard */,
 				34BC0DF92C46C3DD00A20BE1 /* WeatherCell.swift */,
 				34BC0DEE2C46BFE700A20BE1 /* Assets.xcassets */,
@@ -115,6 +118,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 34BC0DD92C46BFE700A20BE1;
 			productRefGroup = 34BC0DE32C46BFE700A20BE1 /* Products */;
@@ -132,7 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34BC0DEF2C46BFE700A20BE1 /* Assets.xcassets in Resources */,
-				34BC0DFD2C46C6C400A20BE1 /* Localizable.strings in Resources */,
+				34BC0E3B2C46E0F700A20BE1 /* Localizable.strings in Resources */,
 				34BC0DF22C46BFE700A20BE1 /* Base in Resources */,
 				34BC0DED2C46BFE700A20BE1 /* Base in Resources */,
 			);
@@ -159,6 +163,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				34BC0DEC2C46BFE700A20BE1 /* Base */,
+				34BC0E3C2C46E17400A20BE1 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -167,14 +172,16 @@
 			isa = PBXVariantGroup;
 			children = (
 				34BC0DF12C46BFE700A20BE1 /* Base */,
+				34BC0E3D2C46E17400A20BE1 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		34BC0DFB2C46C6C400A20BE1 /* Localizable.strings */ = {
+		34BC0E3A2C46E0F700A20BE1 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				34BC0DFC2C46C6C400A20BE1 /* en */,
+				34BC0E392C46E0F700A20BE1 /* en */,
+				34BC0E3F2C46E61300A20BE1 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -187,6 +194,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -250,6 +258,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

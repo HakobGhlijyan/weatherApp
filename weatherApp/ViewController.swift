@@ -14,16 +14,17 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var weatherView: UIView!
     
-    let weatherTypes = [NSLocalizedString("Sunny", comment: ""),
-                        NSLocalizedString("Rainy", comment: ""),
-                        NSLocalizedString("Stormy", comment: ""),
-                        NSLocalizedString("Foggy", comment: "")]
-    
+    var weatherTypes: [String] {
+        ["Ясно", "Дождь", "Гроза","Туман"]
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Настройка UICollectionView
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
         
         // Display random weather on startup
         displayRandomWeather()
@@ -53,16 +54,16 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
     func createWeatherAnimation(type: String) -> UIView {
         let view = UIView()
         switch type {
-        case "Sunny":
+        case "Sunny","Ясно":
             view.backgroundColor = UIColor.yellow
             // Add more sun-specific animations here
-        case "Rainy":
+        case "Rainy","Дождь":
             view.backgroundColor = UIColor.blue
             // Add more rain-specific animations here
-        case "Stormy":
+        case "Stormy","Гроза":
             view.backgroundColor = UIColor.gray
             // Add more storm-specific animations here
-        case "Foggy":
+        case "Foggy","Туман":
             view.backgroundColor = UIColor.lightGray
             // Add more fog-specific animations here
         default:
@@ -81,9 +82,8 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as? WeatherCell {
             // Configure cell
             cell.weatherLabel.text = weatherTypes[indexPath.row]
-        
+            
             cell.backgroundColor = .lightGray // Настройте стиль вашей ячейки
-                    
                     
             return cell
         } else {
@@ -91,13 +91,13 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
             return UICollectionViewCell()
         }
     }
-
+    
+    // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         displayWeather(at: indexPath.row)
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: collectionView.bounds.height)
     }

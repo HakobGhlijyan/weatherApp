@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZV9-9h-Ajf">
-                                <rect key="frame" x="0.0" y="79" width="393" height="128"/>
+                                <rect key="frame" x="10" y="79" width="373" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="uGg-il-D66"/>
@@ -64,12 +64,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ZV9-9h-Ajf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="0QY-bT-99e"/>
-                            <constraint firstItem="ZV9-9h-Ajf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="C0o-hB-cjh"/>
+                            <constraint firstItem="ZV9-9h-Ajf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="C0o-hB-cjh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mgy-9c-FLQ" secondAttribute="bottom" constant="10" id="Pn7-Ou-NsV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mgy-9c-FLQ" secondAttribute="trailing" constant="10" id="V2K-H1-v9I"/>
                             <constraint firstItem="Mgy-9c-FLQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="bov-Nx-uyD"/>
                             <constraint firstItem="Mgy-9c-FLQ" firstAttribute="top" secondItem="ZV9-9h-Ajf" secondAttribute="bottom" constant="10" id="fg7-hm-f2c"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZV9-9h-Ajf" secondAttribute="trailing" id="ydn-aa-jeL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZV9-9h-Ajf" secondAttribute="trailing" constant="10" id="ydn-aa-jeL"/>
                         </constraints>
                     </view>
                     <connections>

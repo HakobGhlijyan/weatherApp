@@ -15,7 +15,7 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var weatherView: UIView!
     
     var weatherTypes: [String] {
-        ["Ясно", "Дождь", "Гроза","Туман"].shuffled()
+        ["Ясно", "Дождь", "Гроза","Туман"]
     }
         
     override func viewDidLoad() {
@@ -84,6 +84,7 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
             cell.weatherLabel.text = weatherTypes[indexPath.row]
             
             cell.backgroundColor = .lightGray // Настройте стиль вашей ячейки
+            cell.layer.cornerRadius = 10
                     
             return cell
         } else {

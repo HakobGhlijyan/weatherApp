@@ -99,6 +99,6 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     // MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: collectionView.bounds.height)
+        return CGSize(width: collectionView.bounds.height, height: collectionView.bounds.height)
     }
 }
